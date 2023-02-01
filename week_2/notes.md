@@ -58,15 +58,30 @@ cp file1 file2
 ```
 - overwrites `file2` with `file1`'s content.
 
+# rm
+
+```bash
+rm file1
+```
+- removes files.
+- doesn't remove directories by default.
+
+# rmdir
+
+```bash
+rmdir dir_name
+```
+- removes only `empty` directories.
+
 # Help
 
-- man
-- which
-- apropos
-- info
-- whatis
-- help
+- `man`
+- `which`
+- `apropos`
+- `info`
+- `whatis`
+- `help`
     - shows keywords reserved for the shell.
     - shell bulletin
-- type
-    - commmand type
+- `type`
+    - prints commmand type
