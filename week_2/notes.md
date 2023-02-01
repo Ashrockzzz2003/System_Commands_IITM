@@ -1,3 +1,31 @@
+# Links
+
+- Hard Links
+- Symbolic Links
+
+# ln
+
+```bash
+ln -s file1 file2
+```
+
+```
+562949953635468 -rwxrwxrwx 2 ashrock_m13 ashrock_m13 0 Feb  1 17:08 file1
+562949953635470 lrwxrwxrwx 1 ashrock_m13 ashrock_m13 5 Feb  1 17:08 file2 -> file1
+```
+- make symbolic links between files.
+- `file2` is a symbolic link to `file1`.
+
+```bash
+ln file1 file3
+```
+```
+562949953635468 -rwxrwxrwx 2 ashrock_m13 ashrock_m13 0 Feb  1 17:08 file1
+562949953635470 lrwxrwxrwx 1 ashrock_m13 ashrock_m13 5 Feb  1 17:08 file2 -> file1
+562949953635468 -rwxrwxrwx 2 ashrock_m13 ashrock_m13 0 Feb  1 17:08 file3
+```
+- `file3` is a hard link to `file1`.
+
 # wc
 
 ```bash
@@ -58,6 +86,23 @@ cp file1 file2
 ```
 - overwrites `file2` with `file1`'s content.
 
+```bash
+cp dir_1 dir_2
+```
+- happens only if `dir_2` exists.
+
+```bash
+cp -r dir_1 dir_2
+```
+- happens even if `dir_2` does not exist.
+
+# mv
+
+```bash
+mv dir_1 dir_2
+```
+- automatically assumes `-r` by default.
+
 # rm
 
 ```bash
@@ -65,6 +110,11 @@ rm file1
 ```
 - removes files.
 - doesn't remove directories by default.
+
+```bash
+rm -r dir_name
+```
+- removes directories `empty and non-empty`
 
 # rmdir
 
