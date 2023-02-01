@@ -22,6 +22,11 @@ alias
 ```
 - know your aliases
 
+```bash
+unalias ll
+```
+- remove the alias `ll`
+
 # Help
 
 - man
