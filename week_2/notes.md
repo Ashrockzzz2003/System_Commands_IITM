@@ -27,6 +27,13 @@ unalias ll
 ```
 - remove the alias `ll`
 
+# touch
+
+```bash
+touch file_name.extension
+```
+- `touch` creates new file in `pwd`.
+
 # Help
 
 - man
