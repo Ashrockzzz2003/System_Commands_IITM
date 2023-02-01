@@ -34,6 +34,30 @@ touch file_name.extension
 ```
 - `touch` creates new file in `pwd`.
 
+```bash
+touch file1 file2 file3
+```
+- create multiple files.
+
+# mkdir
+
+```bash
+mkdir dir_name
+```
+- create directory `dir_name` in `pwd`.
+
+# cp
+
+```bash
+cp filename directory
+```
+- copy `filename` in `pwd` to `directory`.
+
+```bash
+cp file1 file2
+```
+- overwrites `file2` with `file1`'s content.
+
 # Help
 
 - man
