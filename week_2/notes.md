@@ -1,3 +1,10 @@
+# File Sizes
+
+- `ls -l`
+- `stat`
+- `du`
+- Role of block size.
+
 # Links
 
 - Hard Links
