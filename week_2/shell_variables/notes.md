@@ -48,3 +48,16 @@ kill
 | 127 | command not found |
 | 130 | processes killed using `CTRL`+`C` |
 | 137 | processes killed using `kill -9 <pid>` |
+| ...... | ........ |
+
+# Flags in BASH
+
+| flag | meaning |
+| ---- | ------- |
+| h | locate and hash commands |
+| B | brace expansion enabled |
+| i | interactive mode |
+| m | job control enabled |
+| H | ! style history substituition enabled |
+| s | comamnds are read from stdin |
+| c | commands are read from arguments |
