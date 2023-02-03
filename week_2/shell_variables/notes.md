@@ -28,6 +28,23 @@ echo $?; # return code of previously run program
 echo $-; # flags set in the bash shell
 ```
 
+```bash
+echo "hello '
+> line2
+> line3
+> "
+# All lines read until "" are closed.
+```
+
+```bash
+echo "$USERNAME"; # Gives me the value of the variable USERNAME
+echo '$USERNAME'; # Gives me the string '$USERNAME'
+```
+
+```bash
+echo "User: $USER; HOSTNAME: \$HOSTNAME;"; # omits HOSTNAME when "\" is used. Escape character.
+```
+
 # Process Control
 ```bash
 fg
@@ -35,6 +52,13 @@ coproc
 jobs
 top
 kill
+```
+
+```bash
+ps; # List all process
+ps -f; # list process along with parent
+ps -e; # All Processes
+ps --forest; # User readable list of processes.
 ```
 
 # Program exit codes
