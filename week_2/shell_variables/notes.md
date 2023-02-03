@@ -45,6 +45,62 @@ echo '$USERNAME'; # Gives me the string '$USERNAME'
 echo "User: $USER; HOSTNAME: \$HOSTNAME;"; # omits HOSTNAME when "\" is used. Escape character.
 ```
 
+```bash
+echo ${var_name:="default_value"};
+echo ${var_name:+"default"}; # if value is set, display default, else do nothing
+```
+
+```bash
+echo ${!*}; # Get all variable names.
+echo ${#var_name}; # Get length of the variable's value
+echo ${var_name:5:4}; # var_name:offset:slice_length
+```
+```bash
+# Pattern Matching
+
+# Remove
+echo ${var_name#pattern}; # match pattern once
+echo ${var_name##pattern}; # match pattern max possible
+
+# Keep and match
+echo ${var_name%pattern}; # match pattern once
+echo ${var_name%%pattern}; # match pattern max possible
+
+# Match and replace
+echo ${var_name/pattern/replace_string}; # match pattern once
+echo ${var_name//pattern/replace_string}; # match pattern max possible
+echo ${var_name/#pattern/replace_string}; # match at beggining
+echo ${var_name/%pattern/replace_string}; # match at end
+
+# Changing case
+echo ${var_name,}; # Change first char to lower case
+echo ${var_name,,}; # Change all chars to lower case
+echo ${var_name^}; # Change first char to upper case
+echo ${var_name^^}; # Change all chars to upper case
+
+# Restrict types
+declare -i var_name; # Only Integers
+declare -l var_name; # Only lower case
+declare -u var_name; # Only upper case
+declare -r var_name; # Read only variable. Like const
+
+# Remove restrictions
+declare +i var_name;
+declare +l var_name; 
+declare +u var_name; 
+declare +r var_name;
+
+# Indexed Arrays
+declare -a arr; # Declare arr as an indexed array
+$arr[0]="value"; # Set value of element with index 0 in the array
+echo ${arr[0]}; # Get the value of element in 0th index
+echo $#{arr[@]}; # Number of elements in the array
+echo ${!arr[@]}; # Display all used indices
+echo ${arr[@]}; # Display values of all elements of the array
+unset `arr[2]`; # Delete element ar index 2
+arr+=("value"); # Append an element with value "value" at the end of the array.
+```
+
 # Process Control
 ```bash
 fg
