@@ -99,6 +99,12 @@ echo ${!arr[@]}; # Display all used indices
 echo ${arr[@]}; # Display values of all elements of the array
 unset `arr[2]`; # Delete element ar index 2
 arr+=("value"); # Append an element with value "value" at the end of the array.
+
+# Hashes | Associative array
+declare -A hash_name; # Except `append` everything else is similar.
+
+# Scope
+export var_name; # Parent shell modification modifies child but not vice versa.
 ```
 
 # Process Control
