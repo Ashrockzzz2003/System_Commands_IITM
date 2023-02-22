@@ -44,6 +44,14 @@ apt-cache show -a package; # Show the records of a package
 sha256sum file_name; # Show the SHA256 checksum encryption of the file.
 sha251sum file_name; # Show the SHA1 checksum encryption of the file.
 md5sum file_name; # Show the md5 checksum encryption of the file.
+
+sudo cat /etc/sudoers; # Show list of super users.
+sudo cat /etc/apt;
+
+dpkg -l pattern; # List all packages whose names match the pattern.
+dpkg -L package; # List installed files that came from packages.
+dpkg -s package; # Report status of packages.
+dpkg -S pattern; # Seach installed packages for a file.
 ```
 
 ## General
