@@ -13,7 +13,8 @@
 grep `pattern` filename;
 command | grep `pattern`;
 egrep `pattern` filename; # Use ERE engine
-grep -E `pattern` filename;
+grep -E `pattern` filename; # Use EE engine
+grep -i `pattern` filename; # Case Insensitive matching
 ```
 
 |Symbol|Description|
@@ -24,6 +25,7 @@ grep -E `pattern` filename;
 |`^`|Anchor of the beginnning of line or negation of enclosed characters|
 |`$`|Anchor for end of line|
 |`\`|Escape Special Characters|
+|`\b`|Word Boundary. Match the last 2 letters of all words|
 
 ## Special Characters [BRE]
 
@@ -41,3 +43,21 @@ grep -E `pattern` filename;
 |`+`|One or more of preceeding character / expression|
 |`?`|Zero or onr of the preceeding character / expression|
 |`|`|Logical OR over the patterns|
+
+## Backreferences
+
+```bash
+\(hello\).*\1; # \1 matches (hello\) twice inbetween them any number of characters may occur
+```
+
+## BRE Operator Precedence
+- `..`, `==`, `::`: Character Collation
+- \metachar
+- [] Bracket Expression
+- \(\) \n subexpressions and backreferences
+- * \{ \} Repetition of preceedign single char ReGEX
+- Concatenation
+- ^ $ anchors
+
+
+
