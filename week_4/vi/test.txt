@@ -1,0 +1,6 @@
+LINE-1 hola world
+LINE-2 hola world
+ed is perhaps the oldest editor out there
+LINE-4 end of file
+Sat Feb 25 13:01:21 IST 2023
+New line inserted with vim
