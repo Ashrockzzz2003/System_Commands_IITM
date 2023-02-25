@@ -15,6 +15,13 @@ command | grep `pattern`;
 egrep `pattern` filename; # Use ERE engine
 grep -E `pattern` filename; # Use EE engine
 grep -i `pattern` filename; # Case Insensitive matching
+grep '[[:alpha:]]'; # Alphabetic chars
+grep '[[:alnum:]]'; # Alphanumeric characters 
+grep '[[:cntrl:]]'; # Control characters
+grep '[[:print:]]'; # Printable characters
+grep '[[:space:]]'; # Space characters
+grep '[[:blank:]]'; # Blank characters
+grep '[[:graph:]]'; # Match line with non space chars
 ```
 
 |Symbol|Description|
@@ -60,4 +67,9 @@ grep -i `pattern` filename; # Case Insensitive matching
 - ^ $ anchors
 
 
+## Split
 
+```bash
+cat filename | cut -d "<delimiter>" -f <field_number>;
+cat filename | cut -c <character-range>;
+```
