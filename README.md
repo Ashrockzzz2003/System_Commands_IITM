@@ -6,5 +6,5 @@ My Notes of the Bash Course from IITM
 
 |Date|Log|
 |----|---|
-|25/02/2023|Editors|
+|25/02/2023|Editors, Bash Scripts|
 |24/02/2023|Pattern Matching|
