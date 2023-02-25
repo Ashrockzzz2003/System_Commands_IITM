@@ -1,0 +1,5 @@
+line-1 hello world
+line-2 hello world
+ed is perhaps the oldest editor out there
+line-4 end of file
+Sat Feb 25 13:01:21 IST 2023
