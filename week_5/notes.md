@@ -75,6 +75,27 @@ fi
 ```
 
 ```bash
+while condition
+do
+	commands
+done
+```
+
+```
+until condition
+do
+	commands
+done
+```
+
+```
+function_name()
+{
+commands
+}
+```
+
+```bash
 test -e file; # Test if expression exists in file
 # Different ways
 [ -e file ];
@@ -82,3 +103,19 @@ test -e file; # Test if expression exists in file
 (( $v ** 2 > 10 ));
 wc -l file;
 ```
+
+## Unary File Comparisons
+
+|Command|Description|
+|-------|-----------|
+|`-e file`|Check if file exists|
+|`-d file`|Check if file exists and is a directory|
+|`-f file`|Check if file exists and is a file|
+|`-r file`|Check if file exists and is readable|
+|`-s file`|Check if file exists and is not empty|
+|`-w file`|Check if file exists and is writable|
+|`-x file`|Check if file exists and is executable|
+|`-O file`|Check if file exists and is owned by current user|
+|`-G file`|Check if file exists and default group is same as that of the current user|
+
+
