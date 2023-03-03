@@ -113,3 +113,224 @@ else
         echo "No"
 fi
 ```
+
+# GrPA
+
+## GrPA_1
+
+Write a bash script which takes one argument as the name of a file and prints Yes if the file has read permission only for the owner and no other permissions for owner or other users, else do not print anything. The file given in the argument will be present in the current working directory.
+
+```bash
+#!/bin/bash
+
+
+file_permission=$(ls -l | grep $1 | cut -d " " -f1)
+
+if [[ $file_permission =~ "-r--------" ]]; then
+        echo "Yes"
+fi
+```
+
+## GrPA_2A
+
+Write a bash script that accepts a few arguments(all numbers) and performs the following functions.
+
+Prints the string Error if the number of arguments supplied is not equal to 2.
+If the number of arguments is equal to two, print their sum.
+
+```bash
+#!/bin/bash
+
+if [[ $# -ne 2 ]]; then
+        echo "Error"
+else
+        echo $(( $1 + $2 ))
+fi
+```
+
+## GrPA_2B
+
+Write a bash script that reads a value from the standard input stream and prints PNUM if the value is a postive number or 0; prints NNUM if it is a negative number; else print STRING.
+
+```bash
+#!/bin/bash
+
+read n
+
+if [[ $n =~ ^-?[0-9]+\.?[0-9]*$ ]]; then
+        if (( $(echo "$n >= 0" | bc -l) )); then
+                echo "PNUM"
+        else
+                echo "NNUM"
+        fi
+elif [[ $n =~ ^-?+\.?[0-9]*$ ]]; then
+        if (( $(echo "$n >= 0" | bc -l) )); then
+                echo "PNUM"
+        else
+                echo "NNUM"
+        fi
+else
+        echo "STRING"
+fi
+```
+
+## GrPA_3
+
+Write a bash script that takes any number of inputs(all numbers) and prints the maximum and minimum value from all the inputs in the format Maximum: max | Minimum: min, where max is the maximum value and min is the minimum value.
+
+```bash
+#!/bin/bash
+
+max=$1
+min=$1
+
+for n in "${@:2}"; do
+        if [[ $n =~ ^-?[0-9]+\.?[0-9]*$ ]]; then
+                if (( $(echo "$n > $max" | bc -l) )); then
+                        max=$n
+                fi
+                if (( $(echo "$n < $min" | bc -l) )); then
+                        min=$n
+                fi
+        fi
+done
+
+echo "Maximum: $max | Minimum: $min"
+```
+
+
+## GrPA_4
+
+Write a bash script that takes a number as an argument and prints "Yes" if the number is a prime number, else prints "No".
+
+```bash
+#!/bin/bash
+
+n=$1
+
+if (( $n >= 2 )); then
+        for (( i=2; i*i<=$n; i++ )); do
+                if (( $n % $i == 0 )); then
+                        echo "No"
+                        exit 0
+                fi
+        done
+        echo "Yes"
+else
+        echo "No"
+fi
+```
+
+## GrPA_5
+
+Write a bash script that takes two integer values as input, and prints the product table of first integer with all the integers from 1 to the value in second argument as described in the format below.
+
+Let the first argument be 3 and the second argument be 4, then your script should print.
+
+```
+3*1=3
+3*2=6
+3*3=9
+3*4=12
+```
+
+If the first argument is 12 and second argument is 3, then your script should print
+
+```
+12*1=12
+12*2=24
+12*3=36
+```
+Note that there is no space between any numbers, * or = sign in each line. And every product is printed on a new line.
+
+```bash
+#!/bin/bash
+
+for (( i=1; i<=$2; i++ )); do
+        echo $1*$i=$(( $1 * $i ))
+done
+```
+
+## GrPA_6
+
+Consider a directory named "perf_folder" containing some files with different extensions, present in the current working directory. Write a bash script that accepts an argument(name of destination directory), adds a prefix string "program_" to the file names in the directory "perf_folder" meeting the below criteria.
+The file extension is ".c".
+The file names should containing the substring perf.
+
+Also move all the files meeting the above criteria after renaming to the directory(destination) whose name is specified as an argument to your script. The destination directory may or may not be present in the current working directory, if not present create the directory under current working directory.
+
+For e.g. the argument to your script is perf_programs, i.e. perf_programs is the destination directory for renamed files.
+
+If below is the output of ls perf_folder when run in your current working directory.
+
+```
+perf_results.cvc	perf_conf.xml		set_perf_input.c	perf_params.c
+start_test.c	stop_test.c	results.txtscript.sh
+```
+
+Then after running your script, 
+the new output of  running ls perf_folder in your current working directory should be,
+
+```
+perf_results.cvc	perf_conf.xml	start_test.c	stop_test.c	results.txt		script.sh
+```
+and output of running command ls perf_programs in your current working directory should be, 
+
+```
+program_set_perf_input.c	program_perf_params.c
+```
+
+```bash
+#!/bin/bash
+
+# perf_folder
+
+mkdir $1
+
+for line in $(ls -1 perf_folder | grep "\.c$" | grep "perf"); do
+        mv perf_folder/$line perf_folder/program_$line
+        mv perf_folder/program_$line $1
+done
+```
+
+## GrPA_7
+
+Write a bash script that prints the sum of all even numbers of an array of numbers. The array variable is named as number_arr.
+
+```bash
+#!/bin/bash
+
+read -a number_arr
+sum=0
+for n in "${number_arr[@]}"; do
+        if [[ $(( $n % 2 )) -eq 0 ]]; then
+                sum=$(( $sum + $n ))
+        fi
+done
+echo $sum
+```
+
+## GrPA_8
+
+Write a bash script that accepts an integer as argument and prints the corresponding day of week in capitals as given in the table below.
+
+|Argument|1 or 8|2 or 9|3|4|5|6|7|
+|--------|------|------|-|-|-|-|-|
+|Output|SUNDAY|MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|
+
+If the argument is greater than 9 print ERROR
+
+Hint: Use case statement.
+
+```bash
+#!/bin/bash
+
+if [[ $1 -gt 9 ]]; then
+        echo "ERROR"
+else
+        weekdays=('ERROR' 'SUNDAY' 'MONDAY' 'TUESDAY' 'WEDNESDAY' 'THURSDAY' 'FRIDAY' 'SATURDAY' 'SUNDAY' 'MONDAY')
+        echo ${weekdays[$1]}
+fi
+```
+
+
