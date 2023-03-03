@@ -140,10 +140,10 @@ ps --forest; # User readable list of processes.
 
 | flag | meaning |
 | ---- | ------- |
-| h | locate and hash commands |
-| B | brace expansion enabled |
-| i | interactive mode |
-| m | job control enabled |
-| H | ! style history substituition enabled |
-| s | comamnds are read from stdin |
-| c | commands are read from arguments |
+| `h` | locate and hash commands |
+| `B` | brace expansion enabled |
+| `i` | interactive mode |
+| `m` | job control enabled |
+| `H` | ! style history substituition enabled |
+| `s` | comamnds are read from stdin |
+| `c` | commands are read from arguments |
